@@ -1,6 +1,6 @@
 // Function to fetch GitHub pages
 function fetchGitHubPages() {
-  fetch('https://api.github.com/users/yourusername/repos')
+  fetch('https://api.github.com/users/DJCheesusReal/repos')
     .then(response => response.json())
     .then(data => {
       const githubPagesDiv = document.getElementById('githubPages');
@@ -22,7 +22,7 @@ function fetchGitHubPages() {
 
 // Function to fetch YouTube videos
 function fetchYouTubeVideos() {
-  fetch('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=yourusername&key=yourAPIKey')
+  fetch('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=DJ_Cheesus&key=AIzaSyDdawYUcr7uqJbhG376CHnG34ULpivpECY')
     .then(response => response.json())
     .then(data => {
       const uploadsPlaylistId = data.items[0].contentDetails.relatedPlaylists.uploads;
