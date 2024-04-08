@@ -1,82 +1,88 @@
+/* styles.css */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #1a1a1a; /* Dark background color */
-  color: #fff; /* Light text color */
+  background-color: #303030;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  text-align: center;
 }
 
-h1 {
+header h1 {
   margin: 0;
-  font-size: 2rem;
 }
 
 .toggle-container {
   position: relative;
-  display: inline-block;
-  margin-top: 10px;
 }
 
-.toggle {
-  display: inline-block;
-  position: relative;
-  width: 60px;
-  height: 30px;
-  background-color: #555; /* Grey background */
-  border-radius: 15px;
-}
-
-.toggle-handle {
+.toggle-container .toggle-label {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 20px;
+  background-color: #888;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.toggle-container .toggle-label::before {
+  content: '';
+  position: absolute;
+  top: 2px;
   left: 2px;
-  width: 26px;
-  height: 26px;
-  background-color: #fff; /* White handle */
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
   border-radius: 50%;
-  transition: left 0.3s;
+  transition: transform 0.3s ease;
 }
 
-input[type="checkbox"] {
-  display: none;
+#dark-mode-toggle:checked + .toggle-label {
+  background-color: #4CAF50;
 }
 
-input[type="checkbox"]:checked + .toggle .toggle-handle {
-  left: calc(100% - 28px);
+#dark-mode-toggle:checked + .toggle-label::before {
+  transform: translateX(20px);
 }
 
-.toggle-label {
-  margin-left: 10px;
-}
-
-section {
+main {
   padding: 20px;
 }
 
-h2 {
-  margin-top: 0;
+footer {
+  background-color: #424242;
+  padding: 20px;
+  text-align: center;
 }
 
-ul {
-  list-style: none;
+footer ul {
+  list-style-type: none;
   padding: 0;
 }
 
-li {
-  margin-bottom: 10px;
+footer ul li {
+  display: inline;
+  margin-right: 10px;
 }
 
-a {
-  color: #fff;
+footer ul li a {
+  color: #ffffff;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.twitter-feed {
+  margin-top: 20px;
 }

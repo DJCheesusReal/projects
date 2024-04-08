@@ -1,52 +1,31 @@
-// Function to fetch GitHub pages
-function fetchGitHubPages() {
-  fetch('https://api.github.com/users/DJCheesusReal/repos')
-    .then(response => response.json())
-    .then(data => {
-      const githubPagesDiv = document.getElementById('githubPages');
-      const ul = document.createElement('ul');
-      data.forEach(repo => {
-        if (repo.homepage) {
-          const li = document.createElement('li');
-          const link = document.createElement('a');
-          link.href = repo.homepage;
-          link.textContent = repo.name;
-          li.appendChild(link);
-          ul.appendChild(li);
-        }
-      });
-      githubPagesDiv.appendChild(ul);
-    })
-    .catch(error => console.error('Error fetching GitHub pages:', error));
-}
+// scripts.js
+$(document).ready(function() {
+  // Fetch recent videos using YouTube API
+  $.get("https://www.googleapis.com/youtube/v3/playlistItems", {
+      part: "snippet",
+      maxResults: 6,
+      playlistId: "PLAtYOkqenIuyhjn4b95fAEQww_wlrJtJx",
+      key: "AIzaSyDdawYUcr7uqJbhG376CHnG34ULpivpECY"
+  }, function(data) {
+      if (data.items) {
+          var videosHtml = '';
+          $.each(data.items, function(index, item) {
+              var videoId = item.snippet.resourceId.videoId;
+              var videoTitle = item.snippet.title;
+              var videoThumbnail = item.snippet.thumbnails.medium.url;
+              var videoLink = "https://www.youtube.com/watch?v=" + videoId;
+              videosHtml += '<div class="video"><a href="' + videoLink + '"><img src="' + videoThumbnail + '" alt="' + videoTitle + '"><h3>' + videoTitle + '</h3></a></div>';
+          });
+          $('.videos').html(videosHtml);
+      }
+  });
 
-// Function to fetch YouTube videos
-function fetchYouTubeVideos() {
-  fetch('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=DJ_Cheesus&key=AIzaSyDdawYUcr7uqJbhG376CHnG34ULpivpECY')
-    .then(response => response.json())
-    .then(data => {
-      const uploadsPlaylistId = data.items[0].contentDetails.relatedPlaylists.uploads;
-      return fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=10&key=yourAPIKey`);
-    })
-    .then(response => response.json())
-    .then(data => {
-      const youtubeVideosDiv = document.getElementById('youtubeVideos');
-      const ul = document.createElement('ul');
-      data.items.forEach(item => {
-        const li = document.createElement('li');
-        const videoLink = document.createElement('a');
-        videoLink.href = `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`;
-        videoLink.textContent = item.snippet.title;
-        li.appendChild(videoLink);
-        ul.appendChild(li);
-      });
-      youtubeVideosDiv.appendChild(ul);
-    })
-    .catch(error => console.error('Error fetching YouTube videos:', error));
-}
-
-// Call the functions to fetch GitHub pages and YouTube videos when the page loads
-window.onload = function() {
-  fetchGitHubPages();
-  fetchYouTubeVideos();
-};
+  // Embed Twitter timeline
+  twttr.widgets.createTimeline(
+      {
+          sourceType: "profile",
+          screenName: "dj_cheesusyt"
+      },
+      document.getElementById("twitter-feed")
+  );
+});
