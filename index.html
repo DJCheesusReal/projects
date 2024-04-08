@@ -7,32 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Minecraft Content Creator</h1>
-        <div class="toggle-container">
-            <input type="checkbox" id="dark-mode-toggle">
-            <label for="dark-mode-toggle" class="toggle-label"></label>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Minecraft Content Creator</h1>
+        </header>
 
-    <main>
-        <div class="videos">
-        </div>
-        <a class="twitter-timeline" href="https://twitter.com/dj_cheesusyt" data-width="400" data-height="800">Tweets by @dj_cheesusyt</a>
-        </div>
-    </main>
+        <main>
+            <div class="content">
+                <div class="youtube-videos">
+                    <!-- YouTube videos will be displayed here -->
+                </div>
+                <div class="twitter-timeline">
+                    <!-- Twitter timeline will be embedded here -->
+                </div>
+            </div>
 
-    <footer>
-        <ul>
-            <li><a href="#">TikTok</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Discord</a></li>
-            <li><a href="#">Twitch</a></li>
-        </ul>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+            <div class="profile-pic"></div>
+        </main>
+    </div>
 </body>
 </html>

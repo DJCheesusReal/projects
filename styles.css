@@ -1,88 +1,51 @@
 /* styles.css */
 body {
   font-family: Arial, sans-serif;
-  background-color: #303030;
+  background-color: #181818;
   color: #ffffff;
-  transition: background-color 0.3s ease;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  background-color: #212121;
+  padding: 10px 0;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 header h1 {
   margin: 0;
 }
 
-.toggle-container {
-  position: relative;
-}
-
-.toggle-container .toggle-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 20px;
-  background-color: #888;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.toggle-container .toggle-label::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-#dark-mode-toggle:checked + .toggle-label {
-  background-color: #4CAF50;
-}
-
-#dark-mode-toggle:checked + .toggle-label::before {
-  transform: translateX(20px);
-}
-
 main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.youtube-videos,
+.twitter-timeline {
+  background-color: #333333;
   padding: 20px;
+  border-radius: 10px;
 }
 
-footer {
-  background-color: #424242;
-  padding: 20px;
-  text-align: center;
-}
-
-footer ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-footer ul li {
-  display: inline;
-  margin-right: 10px;
-}
-
-footer ul li a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.videos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-}
-
-.twitter-feed {
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  background-color: #333333;
   margin-top: 20px;
+  border-radius: 10px;
+  /* Add your profile picture as a background image here */
 }
