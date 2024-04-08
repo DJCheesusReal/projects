@@ -1,14 +1,82 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  background-color: #1a1a1a; /* Dark background color */
+  color: #fff; /* Light text color */
 }
 
-h1 {
+header {
+  padding: 20px;
   text-align: center;
 }
 
-#githubPages,
-#youtubeVideos {
-  margin-top: 20px;
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.toggle-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.toggle {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #555; /* Grey background */
+  border-radius: 15px;
+}
+
+.toggle-handle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff; /* White handle */
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .toggle .toggle-handle {
+  left: calc(100% - 28px);
+}
+
+.toggle-label {
+  margin-left: 10px;
+}
+
+section {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
